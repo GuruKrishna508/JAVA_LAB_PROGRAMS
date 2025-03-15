@@ -17,10 +17,10 @@ public class Merge_sort {
         for(int i=0;i<n;i++){
             System.out.print(a[i]+" ");
         }
+        System.out.println();
         long start_time=System.nanoTime();
         merge_algo(0,n-1);
         long stop_time=System.nanoTime();
-        merge_algo(0, n-1);
         long elapsed_time =start_time-stop_time;
         System.out.println("The time complexity is "+(double)elapsed_time/1000000);
         for(int i=0;i<n;i++){
@@ -37,16 +37,16 @@ public class Merge_sort {
             merge(low,mid,high);
         }
     }
-    static void merge(int low,int mid,int high){
+    public static void merge(int low,int mid,int high){
         int[] b=new int[max];
         int i,j,h,k;
         i=h=low;
         j=mid+1;
         while((h<=mid) && (j<=high)){
-            if(a[i]>a[j])
-            b[i++]=a[h++];
-            else
+            if(a[h]>a[j])
             b[i++]=a[j++];
+            else
+            b[i++]=a[h++];
 
         }
         if(h>mid){
