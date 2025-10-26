@@ -1,4 +1,4 @@
-package DAA;
+
 import java.util.*;
 
 public class Floyds {
@@ -25,7 +25,7 @@ public class Floyds {
         for(int i=0;i<n;i++){
             for(int j=0;j<n;j++){
                 if(a[i][k]+a[k][j]<a[i][j]){
-                    a[i][j]=a[i][k]+a[k][j];
+                     a[i][j]=a[i][k]+a[k][j];
                 }
             }
         }

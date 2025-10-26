@@ -1,4 +1,4 @@
-package DAA;
+
 import java.util.*;
 public class Merge_sort {
     static final int max = 10005;
@@ -29,46 +29,44 @@ public class Merge_sort {
 
     }
     public static void merge_algo(int low,int high){
-        int mid;
         if(low<high){
-            mid=(low+high)/2;
+            int mid=(low+high)/2;
             merge_algo(low, mid);
             merge_algo(mid+1, high);
-            merge(low,mid,high);
+            merge(low, mid, high);
         }
-    }
+        }
+    
     public static void merge(int low,int mid,int high){
-        int[] b=new int[max];
-        int i,j,h,k;
+        int i,j,k,h;
+        int[] b=new  int[max];
         i=h=low;
         j=mid+1;
         while((h<=mid) && (j<=high)){
-            if(a[h]>a[j])
-            b[i++]=a[j++];
-            else
+            if(a[h]<a[j])
             b[i++]=a[h++];
-
+            else
+            b[i++]=a[j++];
         }
         if(h>mid){
-            for(k=j;k<=high;k++){
+            for(k=j;k<=mid;k++){
                 b[i++]=a[k];
+        }}
+        else{
+            for(k=h;k<=high;k++){
+                b[i++]=a[k];
+            }}
+            for(k=low;k<=high;k++){
+                a[k]=b[k];
             }
         }
-      else{
-        for(k=h;k<=mid;k++){
-            b[i++]=a[k];
-        }
-        for(k=low;k<=high;k++){
-            a[k]=b[k];
-        }
-      }
         
     }
 
-}
+
 /*
  * i j h k
- * i=>keeps track of the current position of the  resultant array/
+ * i=>keeps track of the current position of the  resultant array/r
  * j=>used to keep track or second subarray
  * h=>used to keep track of first subaray
  * k=>used to copy back to original array
